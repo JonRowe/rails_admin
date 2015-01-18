@@ -34,6 +34,7 @@ module RailsAdmin
         end
 
         def foreign_key
+          return if association.respond_to?(:source_reflection_name) && association.source_reflection_name.nil?
           association.foreign_key.to_sym
         end
 
